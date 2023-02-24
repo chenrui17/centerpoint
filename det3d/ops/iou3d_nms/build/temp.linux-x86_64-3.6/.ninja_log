@@ -1,0 +1,5 @@
+# ninja log v5
+0	12093	1661998703282298759	/home/users/chenrui17/3d_models/CenterPoint/det3d/ops/iou3d_nms/build/temp.linux-x86_64-3.6/src/iou3d_cpu.o	b437c8ef1382d2bf
+1	12265	1661998703453302508	/home/users/chenrui17/3d_models/CenterPoint/det3d/ops/iou3d_nms/build/temp.linux-x86_64-3.6/src/iou3d_nms.o	bf06abea76ea584c
+2	16565	1661998707746398386	/home/users/chenrui17/3d_models/CenterPoint/det3d/ops/iou3d_nms/build/temp.linux-x86_64-3.6/src/iou3d_nms_kernel.o	bc2f7d7d95802f33
+0	21367	1661998712542505344	/home/users/chenrui17/3d_models/CenterPoint/det3d/ops/iou3d_nms/build/temp.linux-x86_64-3.6/src/iou3d_nms_api.o	d5f51cc590017b7

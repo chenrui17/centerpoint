@@ -290,7 +290,8 @@ def train_detector(model, dataset, cfg, distributed=False, validate=False, logge
         )
     else:
         model = model.cuda()
-
+    #model.bbox_head = torch.compile(model.bbox_head,mode="reduce-overhead")
+    model.bbox_head.loss = torch.compile(model.bbox_head.loss)
     logger.info(f"model structure: {model}")
 
     trainer = Trainer(

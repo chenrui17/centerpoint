@@ -1,8 +1,9 @@
 import time
 import numpy as np
 import math
-
+import nvtx
 import torch
+import torch._dynamo as dynamo
 
 from torch import nn
 from torch.nn import functional as F
@@ -147,6 +148,8 @@ class RPN(nn.Module):
             if isinstance(m, nn.Conv2d):
                 xavier_init(m, distribution="uniform")
 
+    @nvtx.annotate("neck forward", color="yellow")
+    # @dynamo.optimize("inductor")
     def forward(self, x):
         ups = []
         for i in range(len(self.blocks)):

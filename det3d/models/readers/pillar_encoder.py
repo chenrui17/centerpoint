@@ -5,11 +5,15 @@ Licensed under MIT License [see LICENSE].
 """
 
 import torch
+import det3d
 from det3d.models.utils import get_paddings_indicator
 from torch import nn
 from torch.nn import functional as F
 from ..registry import BACKBONES, READERS
 from ..utils import build_norm_layer
+import nvtx
+import time
+import torch._dynamo as dynamo
 
 
 class PFNLayer(nn.Module):
@@ -113,6 +117,8 @@ class PillarFeatureNet(nn.Module):
         self.x_offset = self.vx / 2 + pc_range[0]
         self.y_offset = self.vy / 2 + pc_range[1]
 
+    # @nvtx.annotate("PFN forward", color="orange")
+    # @dynamo.optimize("inductor")
     def forward(self, features, num_voxels, coors):
         device = features.device
 
@@ -179,6 +185,8 @@ class PointPillarsScatter(nn.Module):
         self.name = "PointPillarsScatter"
         self.nchannels = num_input_features
 
+    @nvtx.annotate("PointPillarsScatter forward", color="green")
+    # @dynamo.optimize("inductor")
     def forward(self, voxel_features, coords, batch_size, input_shape):
 
         self.nx = input_shape[0]

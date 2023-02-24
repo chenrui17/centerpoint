@@ -1,0 +1,17 @@
+# ninja log v5
+1	13394	1669213405745958933	/home/users/chenrui17/3d_models/cp-fix-torch-bug/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_kernel.o	4095eec4d289bda
+0	26327	1669213418670257561	/home/users/chenrui17/3d_models/cp-fix-torch-bug/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_cpu.o	45905dc7de5330f7
+1	26681	1669213419025265736	/home/users/chenrui17/3d_models/cp-fix-torch-bug/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms.o	40abb404f896976a
+1	27452	1669213419795283468	/home/users/chenrui17/3d_models/cp-fix-torch-bug/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_api.o	741ad11d5b9bee63
+4	13479	1671507589686095868	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_kernel.o	dcf95ebbd41e0785
+4	25391	1671507601581374379	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_api.o	418347bbbbe1b8b0
+3	26028	1671507602220389515	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_cpu.o	f26b2eaeb498ddce
+4	26425	1671507602616398634	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms.o	f758c57dd1a87ef7
+37	16248	1671602989913688008	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_kernel.o	55ae50c7d792d9ef
+36	29848	1671603003493008298	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_api.o	23f10e9d7b19f698
+35	29871	1671603003522008995	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms.o	8fd7994f90640ec9
+35	33844	1671603007492102390	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_cpu.o	349b90695a2f1237
+24	14210	1672132617897630676	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_kernel.o	3dc879a0aed52c92
+23	27633	1672132631305942553	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms.o	b0b97822cf8c8e19
+23	28532	1672132632204963256	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_nms_api.o	3ad0afbd82163cd6
+23	29846	1672132633515993961	/home/users/chenrui17/3d_models/cp-torch_1_14/det3d/ops/iou3d_nms/build/temp.linux-x86_64-cpython-38/src/iou3d_cpu.o	1b628c891abdea05

@@ -123,7 +123,7 @@ db_sampler = dict(
 )
 train_preprocessor = dict(
     mode="train",
-    shuffle_points=True,
+    shuffle_points=False,
     global_rot_noise=[-0.3925, 0.3925],
     global_scale_noise=[0.95, 1.05],
     db_sampler=db_sampler,
@@ -164,8 +164,8 @@ val_anno = "data/nuScenes/infos_val_10sweeps_withvelo_filter_True.pkl"
 test_anno = None
 
 data = dict(
-    samples_per_gpu=4,
-    workers_per_gpu=8,
+    samples_per_gpu=16,
+    workers_per_gpu=16,
     train=dict(
         type=dataset_type,
         root_path=data_root,
@@ -209,7 +209,7 @@ lr_config = dict(
 checkpoint_config = dict(interval=1)
 # yapf:disable
 log_config = dict(
-    interval=5,
+    interval=10,
     hooks=[
         dict(type="TextLoggerHook"),
         # dict(type='TensorboardLoggerHook')
@@ -217,7 +217,7 @@ log_config = dict(
 )
 # yapf:enable
 # runtime settings
-total_epochs = 20
+total_epochs = 1
 device_ids = range(8)
 dist_params = dict(backend="nccl", init_method="env://")
 log_level = "INFO"

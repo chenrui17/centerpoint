@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from det3d.core.utils.center_utils import _transpose_and_gather_feat
+import nvtx
+import torch._dynamo as dynamo
 
 class RegLoss(nn.Module):
   '''Regression loss for an output tensor
@@ -14,6 +16,7 @@ class RegLoss(nn.Module):
   def __init__(self):
     super(RegLoss, self).__init__()
   
+  # @nvtx.annotate("regloss", color="blue")
   def forward(self, output, mask, ind, target):
     pred = _transpose_and_gather_feat(output, ind)
     mask = mask.float().unsqueeze(2) 
@@ -31,6 +34,7 @@ class FastFocalLoss(nn.Module):
   def __init__(self):
     super(FastFocalLoss, self).__init__()
 
+  # @nvtx.annotate("focalloss", color="yellow")
   def forward(self, out, target, ind, mask, cat):
     '''
     Arguments:

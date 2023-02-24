@@ -1,6 +1,8 @@
 from ..registry import DETECTORS
 from .single_stage import SingleStageDetector
 from copy import deepcopy 
+import nvtx
+import time
 
 @DETECTORS.register_module
 class PointPillars(SingleStageDetector):
@@ -29,6 +31,7 @@ class PointPillars(SingleStageDetector):
             x = self.neck(x)
         return x
 
+    # @nvtx.annotate("PointPillars forward", color="purple")
     def forward(self, example, return_loss=True, **kwargs):
         voxels = example["voxels"]
         coordinates = example["coordinates"]

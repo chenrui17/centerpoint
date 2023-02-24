@@ -14,6 +14,9 @@ import torch
 from torch import nn
 from .circle_nms_jit import circle_nms
 
+import nvtx
+import torch._dynamo as dynamo
+
 def gaussian_radius(det_size, min_overlap=0.5):
     height, width = det_size
 
@@ -62,6 +65,7 @@ def draw_umich_gaussian(heatmap, center, radius, k=1):
         np.maximum(masked_heatmap, masked_gaussian * k, out=masked_heatmap)
     return heatmap
 
+# @nvtx.annotate("gather", color="pink")
 def _gather_feat(feat, ind, mask=None):
     dim  = feat.size(2)
     ind  = ind.unsqueeze(2).expand(ind.size(0), ind.size(1), dim)
@@ -72,6 +76,7 @@ def _gather_feat(feat, ind, mask=None):
         feat = feat.view(-1, dim)
     return feat
 
+# @nvtx.annotate("transpos_gather", color="gray")
 def _transpose_and_gather_feat(feat, ind):
     feat = feat.permute(0, 2, 3, 1).contiguous()
     feat = feat.view(feat.size(0), -1, feat.size(3))

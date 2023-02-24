@@ -392,6 +392,8 @@ class Trainer(object):
         # prefetcher = Prefetcher(data_loader)
         # for data_batch in BackgroundGenerator(data_loader, max_prefetch=3):
         for i, data_batch in enumerate(data_loader):
+            if i == 500:
+                break
             global_step = base_step + i
             if self.lr_scheduler is not None:
                 #print(global_step)

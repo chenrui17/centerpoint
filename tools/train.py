@@ -8,6 +8,8 @@ import warnings
 warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
 warnings.simplefilter('ignore', category=NumbaWarning)
 
+import logging
+
 import numpy as np
 import torch
 import yaml
@@ -66,6 +68,11 @@ def main():
     # torch.backends.cudnn.deterministic = True
     # torch.backends.cudnn.benchmark = False
     # np.random.seed(0)
+
+    # torch._inductor.config.debug = True
+    # torch._dynamo.config.output_code = True
+    # torch._dynamo.config.log_level = logging.INFO
+    # torch.set_float32_matmul_precision('high')
 
     args = parse_args()
 

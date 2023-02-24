@@ -15,6 +15,9 @@ from det3d.models.losses.centernet_loss import FastFocalLoss, RegLoss
 from det3d.models.utils import Sequential
 from ..registry import HEADS
 import copy 
+import nvtx
+import torch._dynamo as dynamo
+
 try:
     from det3d.ops.dcn import DeformConv
 except:
@@ -247,6 +250,8 @@ class CenterHead(nn.Module):
         y = torch.clamp(x.sigmoid_(), min=1e-4, max=1-1e-4)
         return y
 
+    # @nvtx.annotate("center head loss", color="red")
+    # @dynamo.optimize("inductor")
     def loss(self, example, preds_dicts, test_cfg, **kwargs):
         rets = []
         for task_id, preds_dict in enumerate(preds_dicts):
